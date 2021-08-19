@@ -71,18 +71,24 @@ The purpose of this database is to aggregate immigration and temperature events 
 
 ## Step 5: Complete Project Write Up
 
-#### Choice of tools
+### Choice of tools
 
 Apache Spark was used in the project due to its ability to work with large amounts of data and with different file formats, in addition to having spark.sql library has many tools for transforming data, such as performing joins and creating tables.
 
-#### Data updates
+### Data updates
 
 Due to the nature of the data being monthly, the update is ideally carried out monthly.
 
-#### Adapting the project to different scenarios
+### Adapting the project to different scenarios
+
+1- *Increase in data volume by 100x*
 
 In this scenario Spark remains the tool to be used. To run this pipeline for a 100x dataset a real spark cluster must be used and distribute the calculation to several nodes.
 
+2- *The data populates a dashboard that must be updated on a daily basis by 7am every day*
+
 For this case the ideal tool is Apache Airflow, with it you can reliably hijack and run ETL pipelines and report any problems along the way.
+
+3- *The database needs to be accessed by 100+ people*
 
 One option would be to put the data into S3 and create a pipeline with Airflow or AWS Step Functions to move the data from S3 to a scalable DataWarehouse on Amazon Redshift. If the database only receives queries and does not receive inserts or updates, the data can be periodically copied to a NoSQL database like Cassandra.
