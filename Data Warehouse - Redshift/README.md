@@ -2,7 +2,7 @@
 
 ## Introduction 
 
-In this project, I applied learning in data warehouses and AWS to build an ETL pipeline that extracts data from S3 to test tables hosted on Redshift and creates the analysis tables from these test tables.
+In this project the task was to load data from S3 into the test tables in Redshift and execute SQL statements that create the analytic tables from these test tables.
 
 ## Datasets
 
